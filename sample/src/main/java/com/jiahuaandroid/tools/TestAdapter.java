@@ -3,7 +3,7 @@ package com.jiahuaandroid.tools;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.jiahuaandroid.hjhtools.adapter.BaseRecyclerViewAdapter;
+import com.jiahuaandroid.basetools.adapter.BaseRecyclerViewAdapter;
 
 import java.util.List;
 

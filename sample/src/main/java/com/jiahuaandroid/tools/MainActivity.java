@@ -8,7 +8,7 @@ import android.support.v7.widget.RecyclerView;
 
 import com.jiahuaandroid.basetools.adapter.OnRecyclerItemClickListener;
 import com.jiahuaandroid.basetools.utils.CUtils;
-import com.jiahuaandroid.sample.databinding.ActivityMainBinding;
+import com.jiahuaandroid.tools.databinding.ActivityMainBinding;
 
 import java.util.ArrayList;
 

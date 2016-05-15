@@ -2,7 +2,8 @@ package com.jiahuaandroid.tools;
 
 import android.app.Application;
 
-import com.jiahuaandroid.hjhtools.utils.CUtils;
+import com.jiahuaandroid.basetools.utils.CUtils;
+
 
 /**
  * Created by jhhuang on 2016/5/13.
