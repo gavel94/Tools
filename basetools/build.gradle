@@ -21,6 +21,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
 }
 
 dependencies {
@@ -30,6 +31,8 @@ dependencies {
     compile 'com.android.support:recyclerview-v7:23.0.0'
     compile 'com.google.code.gson:gson:2.2.4'
 }
+
+//apply from: 'https://raw.githubusercontent.com/msdx/gradle-publish/master/bintray.gradle'
 
 def siteUrl = 'https://github.com/jiahuahuang/Tools'
 def gitUrl = 'https://github.com/jiahuahuang/Tools.git'
@@ -86,11 +89,25 @@ task sourcesJar(type: Jar) {
 task javadoc(type: Javadoc) {
     source = android.sourceSets.main.java.srcDirs
     classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+    destinationDir = file("../javadoc/")
+    failOnError false
+//    source = android.sourceSets.main.java.srcDirs
+//    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
 }
 
 task javadocJar(type: Jar, dependsOn: javadoc) {
     classifier = 'javadoc'
     from javadoc.destinationDir
+}
+
+javadoc {
+    options{
+        encoding "UTF-8"
+        charSet 'UTF-8'
+        author true
+        version true
+        links "http://docs.oracle.com/javase/7/docs/api"
+    }
 }
 
 artifacts {
@@ -118,3 +135,4 @@ bintray {
         publish = true
     }
 }
+
