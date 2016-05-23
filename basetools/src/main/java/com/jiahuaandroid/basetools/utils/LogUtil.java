@@ -24,12 +24,8 @@ public class LogUtil {
     private LogUtil() {
     }
 
-    public static void debug(boolean debug) {
-        if (debug) {
-            LEVEL = VERBOSE;
-        } else {
-            LEVEL = NOTHING;
-        }
+    public static void debug(int debug) {
+            LEVEL = debug;
     }
 
     public static void v(String tag, String msg) {
