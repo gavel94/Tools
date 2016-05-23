@@ -19,7 +19,18 @@ public class LogUtil {
 
     public static final int NOTHING = 6;
 
-    public static final int LEVEL = VERBOSE;
+    public static int LEVEL = NOTHING;
+
+    private LogUtil() {
+    }
+
+    public static void debug(boolean debug) {
+        if (debug) {
+            LEVEL = VERBOSE;
+        } else {
+            LEVEL = NOTHING;
+        }
+    }
 
     public static void v(String tag, String msg) {
         if(LEVEL<=VERBOSE) {
