@@ -8,7 +8,9 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
 
 /**
- * Created by Administrator on 2016/4/12.
+ * Created by jhhuang on 2016/5/13.
+ * QQ:781913268
+ * 作用：SwipItemTouchCallback
  */
 public class SwipItemTouchCallback extends ItemTouchHelper.Callback {
 
@@ -107,11 +109,24 @@ public class SwipItemTouchCallback extends ItemTouchHelper.Callback {
         return this;
     }
     public interface OnDragListener{
+        /**
+         * 拖拽完成
+         */
         void onFinishDrag();
     }
 
     public interface ItemTouchAdapter {
+        /**
+         * 移动
+         * @param fromPosition
+         * @param toPosition
+         */
         void onMove(int fromPosition, int toPosition);
+
+        /**
+         * 删除
+         * @param position
+         */
         void onSwiped(int position);
     }
 }

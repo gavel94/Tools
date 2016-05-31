@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * Created by jhhuang on 2016/5/13.
  * QQ:781913268
- * 作用：xxx
+ * 作用：TestAdapter
  */
 public class TestAdapter extends BaseRecyclerViewAdapter<String,TestAdapter.MyViewHolder> {
     /**
