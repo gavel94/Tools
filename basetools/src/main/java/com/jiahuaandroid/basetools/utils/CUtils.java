@@ -40,6 +40,7 @@ import java.util.regex.Pattern;
 public class CUtils {
     private static Application mApplication;
     private static Gson mGson;
+    private static Toast toast;
 
     private CUtils() {
     }
@@ -82,7 +83,14 @@ public class CUtils {
      * @param msg
      */
     public static void showMsg(String msg) {
-        Toast.makeText(getApplication(), msg, Toast.LENGTH_SHORT).show();
+        if (toast == null) {
+            toast = Toast.makeText(getApplication(),
+                    msg,
+                    Toast.LENGTH_SHORT);
+        } else {
+            toast.setText(msg);
+        }
+        toast.show();
     }
 
     /**
@@ -92,7 +100,15 @@ public class CUtils {
      */
     public static void showMsg(int resId) {
         String msg = stringFromRes(resId);
-        Toast.makeText(getApplication(), msg, Toast.LENGTH_SHORT).show();
+        if (toast == null) {
+            toast = Toast.makeText(getApplication(),
+                    msg,
+                    Toast.LENGTH_SHORT);
+        } else {
+            toast.setText(msg);
+        }
+        toast.show();
+//        Toast.makeText(getApplication(), msg, Toast.LENGTH_SHORT).show();
     }
 
     /**
@@ -324,6 +340,7 @@ public class CUtils {
 
     /**
      * 通过uri得到文件地址
+     *
      * @param context
      * @param uri
      * @return
@@ -372,7 +389,7 @@ public class CUtils {
                 }
 
                 final String selection = "_id=?";
-                final String[] selectionArgs = new String[] { split[1] };
+                final String[] selectionArgs = new String[]{split[1]};
 
                 return getDataColumn(context, contentUri, selection, selectionArgs);
             }
@@ -393,14 +410,10 @@ public class CUtils {
      * Get the value of the data column for this Uri. This is useful for
      * MediaStore Uris, and other file-based ContentProviders.
      *
-     * @param context
-     *            The context.
-     * @param uri
-     *            The Uri to query.
-     * @param selection
-     *            (Optional) Filter used in the query.
-     * @param selectionArgs
-     *            (Optional) Selection arguments used in the query.
+     * @param context       The context.
+     * @param uri           The Uri to query.
+     * @param selection     (Optional) Filter used in the query.
+     * @param selectionArgs (Optional) Selection arguments used in the query.
      * @return The value of the _data column, which is typically a file path.
      */
     public static String getDataColumn(Context context, Uri uri, String selection,
@@ -408,7 +421,7 @@ public class CUtils {
 
         Cursor cursor = null;
         final String column = "_data";
-        final String[] projection = { column };
+        final String[] projection = {column};
 
         try {
             cursor = context.getContentResolver().query(uri, projection, selection, selectionArgs,
@@ -425,8 +438,7 @@ public class CUtils {
     }
 
     /**
-     * @param uri
-     *            The Uri to check.
+     * @param uri The Uri to check.
      * @return Whether the Uri authority is ExternalStorageProvider.
      */
     public static boolean isExternalStorageDocument(Uri uri) {
@@ -434,8 +446,7 @@ public class CUtils {
     }
 
     /**
-     * @param uri
-     *            The Uri to check.
+     * @param uri The Uri to check.
      * @return Whether the Uri authority is DownloadsProvider.
      */
     public static boolean isDownloadsDocument(Uri uri) {
@@ -443,8 +454,7 @@ public class CUtils {
     }
 
     /**
-     * @param uri
-     *            The Uri to check.
+     * @param uri The Uri to check.
      * @return Whether the Uri authority is MediaProvider.
      */
     public static boolean isMediaDocument(Uri uri) {
