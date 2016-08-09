@@ -13,8 +13,9 @@ import java.util.List;
 /**
  * Created by jhhuang on 2016/3/3.
  * QQ: 781913268
- * 作用：RecyclerView的通用适配器
+ * 作用：RecyclerView的通用适配器 见recyclerview包下
  */
+@Deprecated
 public abstract class BaseRecyclerViewAdapter <T, VH extends BaseRecyclerViewAdapter.SparseArrayViewHolder> extends RecyclerView.Adapter<VH> {
     /**
      * data

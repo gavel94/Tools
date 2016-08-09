@@ -8,6 +8,11 @@ import android.widget.BaseAdapter;
 
 import java.util.List;
 
+/**
+ * 分包在listview
+ * @param <T>
+ */
+@Deprecated
 public abstract class CommonAdapter<T> extends BaseAdapter
 {
 	protected Context mContext;

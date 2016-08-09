@@ -6,6 +6,11 @@ import android.view.ViewGroup;
 
 import java.util.List;
 
+/**
+ * 分包在listview
+ * @param <T>
+ */
+@Deprecated
 public abstract class MultiItemCommonAdapter<T> extends CommonAdapter<T>
 {
 

@@ -10,7 +10,7 @@ import android.support.v7.widget.helper.ItemTouchHelper;
 /**
  * Created by jhhuang on 2016/5/13.
  * QQ:781913268
- * 作用：SwipItemTouchCallback
+ * 作用：SwipItemTouchCallback 拖拽类
  */
 public class SwipItemTouchCallback extends ItemTouchHelper.Callback {
 
